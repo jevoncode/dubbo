@@ -83,6 +83,9 @@
 		</profile>
 	</profiles>
 	<properties>
+
+		<!-- Compiling Time JDK Version -->
+		<java.version>1.7</java.version>
 		<!-- Common libs -->
 		<spring_version>2.5.6.SEC03</spring_version>
 		<javassist_version>3.15.0-GA</javassist_version>
@@ -90,9 +93,11 @@
 		<mina_version>1.1.7</mina_version>
 		<grizzly_version>2.1.4</grizzly_version>
 		<httpclient_version>4.1.2</httpclient_version>
-		<hessian_lite_version>3.2.1-fixed-2</hessian_lite_version>
+		<!--<hessian_lite_version>3.2.1-fixed-2</hessian_lite_version>-->
+		<hessian_lite_version>3.2.6</hessian_lite_version>
 		<xstream_version>1.4.1</xstream_version>
-		<fastjson_version>1.1.8</fastjson_version>
+		<!--<fastjson_version>1.1.8</fastjson_version>-->
+		<fastjson_version>1.1.15</fastjson_version>
 		<bsf_version>3.1</bsf_version>
 		<sorcerer_version>0.8</sorcerer_version>
 		<zookeeper_version>3.3.3</zookeeper_version>
@@ -360,6 +365,15 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
@@ -451,18 +465,18 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-		<repository>
-			<id>opensesame.releases</id>
-			<url>http://code.alibabatech.com/mvn/releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+<!--	<repositories>-->
+<!--		<repository>-->
+<!--			<id>opensesame.releases</id>-->
+<!--			<url>http://code.alibabatech.com/mvn/releases</url>-->
+<!--			<releases>-->
+<!--				<enabled>true</enabled>-->
+<!--			</releases>-->
+<!--			<snapshots>-->
+<!--				<enabled>false</enabled>-->
+<!--			</snapshots>-->
+<!--		</repository>-->
+<!--	</repositories>-->
 	<issueManagement>
 		<system>jira</system>
 		<url>http://code.alibabatech.com/jira/browse/DUBBO</url>
